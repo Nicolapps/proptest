@@ -212,7 +212,7 @@ macro_rules! mk_err_msg {
             "]",
             " during #[derive(Arbitrary)]:\n",
             $msg,
-            " Please see: https://PATH/TO/foo#",
+            " Please see: https://proptest-rs.github.io/proptest/proptest-derive/errors.html#",
             stringify!($code),
             " for more information."
         )
