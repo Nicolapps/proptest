@@ -198,6 +198,10 @@ impl Context {
     }
 }
 
+//==============================================================================
+// Messages
+//==============================================================================
+
 /// Produce an error string with the error `$code` which corresponds
 /// to the given `$message`.
 macro_rules! mk_err_msg {
