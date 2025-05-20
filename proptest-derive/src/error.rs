@@ -198,12 +198,9 @@ impl Context {
     }
 }
 
-//==============================================================================
-// Messages
-//==============================================================================
-
 /// Produce an error string with the error `$code` which corresponds
 /// to the given `$message`.
+#[macro_export]
 macro_rules! mk_err_msg {
     ($code: ident, $msg: expr) => {
         concat!(
@@ -677,3 +674,14 @@ error!(
      since `params` cannot be used in `<string>`.",
     item
 );
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn test_mk_err_msg_format() {
+        assert_eq!(
+            mk_err_msg!(E0001, "This is a sample error message."),
+            "[proptest_derive, E0001] during #[derive(Arbitrary)]:\nThis is a sample error message. Please see: https://proptest-rs.github.io/proptest/proptest-derive/errors.html#E0001 for more information."
+        );
+    }
+}
